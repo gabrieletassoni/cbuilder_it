@@ -1,28 +1,12 @@
-# CbuilderIt
-Short description and motivation.
 
-## Usage
-How to use my plugin.
+## Seeds Creation
 
-## Installation
-Add this line to your application's Gemfile:
+Using SeedDump or similar, populate the database with:
 
-```ruby
-gem "cbuilder_it"
-```
-
-And then execute:
 ```bash
-$ bundle
+rails db:seed:dump MODELS=ModificationType,StatDefinition,Size,Path,RankCategory,Rank,SkillCategory,Army INCLUDE_ALL=true UPSERT_ALL=true FILE=/workspaces/project/backend/vendor/submodules/cbuilder_it/db/seeds/initial_catalog_seeds.rb
+
+rails db:seed:dump MODELS=Army INCLUDE_ALL=true UPSERT_ALL=true FILE=/workspaces/project/backend/vendor/submodules/cbuilder_it/db/seeds/armies.rb
+
+rails db:seed:dump INCLUDE_ALL=true UPSERT_ALL=true FILE=/workspaces/project/backend/vendor/submodules/cbuilder_it/db/seeds/skill_seeds.rb
 ```
-
-Or install it yourself as:
-```bash
-$ gem install cbuilder_it
-```
-
-## Contributing
-Contribution directions go here.
-
-## License
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

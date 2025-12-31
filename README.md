@@ -8,5 +8,5 @@ rails db:seed:dump MODELS=ModificationType,StatDefinition,Size,Path,RankCategory
 
 rails db:seed:dump MODELS=Army INCLUDE_ALL=true UPSERT_ALL=true FILE=/workspaces/project/backend/vendor/submodules/cbuilder_it/db/seeds/armies.rb
 
-rails db:seed:dump INCLUDE_ALL=true UPSERT_ALL=true FILE=/workspaces/project/backend/vendor/submodules/cbuilder_it/db/seeds/skill_seeds.rb
+rails db:seed:dump INCLUDE_ALL=true UPSERT_ALL=true MODELS_EXCLUDE="ThecoreSettings::Setting,User,Target,Predicate,Action" FILE=/workspaces/project/backend/vendor/submodules/cbuilder_it/db/complete_seeds.rb
 ```

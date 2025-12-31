@@ -23,3 +23,8 @@ require_relative "seeds/artifacts/faithful"
 require_relative "seeds/fighters/devourers"
 # Affiliations
 require_relative "seeds/affiliations/devourers"
+
+# Reset ID sequences
+ActiveRecord::Base.connection.tables.each do |table_name|
+  ActiveRecord::Base.connection.reset_pk_sequence!(table_name)
+end

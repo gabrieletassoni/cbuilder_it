@@ -1,9 +1,11 @@
 StatModifier.upsert_all([
-  {id: 1, source_type: "Keyword", source_id: 3, value: 1.0, created_at: "2025-12-30T18:37:18Z", updated_at: "2025-12-30T18:37:18Z", stat: "base_wounds", condition: nil},
-  {id: 2, source_type: "Keyword", source_id: 13, value: 1.0, created_at: "2025-12-31T10:59:23Z", updated_at: "2025-12-31T10:59:23Z", stat: "discipline", condition: nil},
-  {id: 3, source_type: "Keyword", source_id: 14, value: 1.0, created_at: "2025-12-31T10:59:52Z", updated_at: "2025-12-31T10:59:52Z", stat: "courage", condition: nil},
-  {id: 4, source_type: "Skill", source_id: 20, value: 1.0, created_at: "2025-12-31T15:17:01Z", updated_at: "2025-12-31T15:17:01Z", stat: "discipline", condition: "keyword:13"},
-  {id: 5, source_type: "Skill", source_id: 20, value: 1.0, created_at: "2025-12-31T15:17:28Z", updated_at: "2025-12-31T15:17:28Z", stat: "courage", condition: "keyword:14"}
+  {id: 1, source_type: "Keyword", source_id: 3, value: "+1", created_at: "2025-12-30T18:37:18Z", updated_at: "2025-12-31T17:01:22Z", stat: "base_wounds", condition: nil},
+  {id: 2, source_type: "Keyword", source_id: 13, value: "+1", created_at: "2025-12-31T10:59:23Z", updated_at: "2025-12-31T17:01:16Z", stat: "discipline", condition: nil},
+  {id: 3, source_type: "Keyword", source_id: 14, value: "+1", created_at: "2025-12-31T10:59:52Z", updated_at: "2025-12-31T17:01:10Z", stat: "courage", condition: nil},
+  {id: 4, source_type: "Skill", source_id: 20, value: "+1", created_at: "2025-12-31T15:17:01Z", updated_at: "2025-12-31T17:01:03Z", stat: "discipline", condition: "keyword:13"},
+  {id: 5, source_type: "Skill", source_id: 20, value: "+1", created_at: "2025-12-31T15:17:28Z", updated_at: "2025-12-31T17:00:56Z", stat: "courage", condition: "keyword:14"},
+  {id: 6, source_type: "Affiliation", source_id: 1, value: "+1", created_at: "2025-12-31T16:54:43Z", updated_at: "2025-12-31T17:00:14Z", stat: "base_cost", condition: nil},
+  {id: 7, source_type: "Affiliation", source_id: 5, value: "-(rank+1)", created_at: "2025-12-31T17:02:02Z", updated_at: "2025-12-31T17:23:34Z", stat: "base_cost", condition: "size:2 and (skill:23 or skill:6)"}
 ])
 SkillTarget.upsert_all([
   {id: 1, name: "Combattenti", created_at: "2025-12-31T09:10:49Z", updated_at: "2025-12-31T09:13:27Z"},
@@ -53,8 +55,7 @@ Keyword.upsert_all([
   {id: 10, name: "Artiglieria Pesante Perforante", description: "Tiri di Artiglieria\r\nQuesta categoria include tutti i combattenti il cui rango include “Artiglieria Leggera” o “Artiglieria Pesante”.\r\n\r\nIl Tiro Perforante\r\nAl momento di procedere al tiro di Artiglieria Perforante, il combattente sceglie un bersaglio per il tiro (quindi visibile o a portata di Consapevolezza). Egli traccia una linea retta che, partendo dal centro della sua base e attraversando il suo arco di visuale, attraversa la base del bersaglio e rientra nella gittata scelta, perforando solo entro il limite della gittata.\r\nPer ogni combattente la cui base è attraversata, anche parzialmente, da questa linea, si effettui un test di tiro con difficoltà pari a quella della gittata entro cui si trova il combattente.\r\nSi applichino al tiro i normali modificatori dovuti alla taglia ed alla copertura (questo test di tiro può essere effettuato anche se non si vedono questi combattenti.) Un combattente non visibile è in copertura. ​\r\n​\r\nOgni combattente così colpito subisce un tiro per ferire la cui forza è pari a:\r\n●​ Artiglieria Pesante: forza piena su tutti.\r\n\r\nIl tiro si ferma e non prosegue sui bersagli seguenti se:\r\n●​ La linea attraversa un qualunque elemento scenico o congegno immobile senza punti struttura;\r\n●​ Un combattente colpito subisce un tiro per ferire che non causa ferite. Il tiro prosegue però normalmente se un combattente evita il tiro per ferire grazie ad una prova di Istinto di \r\nSopravvivenza.\r\nI combattenti dotati dell’abilità Esploratore e ancora nascosti non possono essere colpiti dai proiettili di Artiglieria Perforante.\r\nL’artiglieria perforante non randomizza in mischia. Il proiettile passa dritto per dritto.", created_at: "2025-12-30T19:25:26Z", updated_at: "2025-12-30T19:25:26Z"},
   {id: 12, name: "Alfiere", description: nil, created_at: "2025-12-31T10:58:52Z", updated_at: "2025-12-31T10:58:52Z"},
   {id: 13, name: "Musico", description: nil, created_at: "2025-12-31T10:59:23Z", updated_at: "2025-12-31T10:59:23Z"},
-  {id: 14, name: "Porta Stendardo", description: nil, created_at: "2025-12-31T10:59:52Z", updated_at: "2025-12-31T10:59:52Z"},
-  {id: 17, name: "Wolfen", description: nil, created_at: "2025-12-31T15:26:02Z", updated_at: "2025-12-31T15:26:02Z"}
+  {id: 14, name: "Porta Stendardo", description: nil, created_at: "2025-12-31T10:59:52Z", updated_at: "2025-12-31T10:59:52Z"}
 ])
 Equipment.upsert_all([
   {id: 1, name: "Spada-Ascia", description: "Se il portatore di una Spada Ascia infligge almeno 3 ferite con un tiro per ferire, allora egli causa 1 ferita in più.", cost: 0, created_at: "2025-12-28T15:28:38Z", updated_at: "2025-12-28T15:28:38Z"},
@@ -411,15 +412,20 @@ GrantedSkill.upsert_all([
   {id: 61, target_type: "Keyword", target_id: 10, skill_id: 102, created_at: "2025-12-31T10:31:13Z", updated_at: "2025-12-31T10:31:13Z", value: nil, condition: nil},
   {id: 62, target_type: "Keyword", target_id: 9, skill_id: 102, created_at: "2025-12-31T10:31:26Z", updated_at: "2025-12-31T10:31:26Z", value: nil, condition: nil},
   {id: 64, target_type: "Keyword", target_id: 12, skill_id: 7, created_at: "2025-12-31T10:58:52Z", updated_at: "2025-12-31T10:58:52Z", value: "1", condition: nil},
-  {id: 65, target_type: "Skill", target_id: 20, skill_id: 7, created_at: "2025-12-31T15:18:40Z", updated_at: "2025-12-31T15:22:51Z", value: "1", condition: "keyword:12"},
-  {id: 66, target_type: "Skill", target_id: 20, skill_id: 313, created_at: "2025-12-31T15:26:44Z", updated_at: "2025-12-31T15:26:44Z", value: nil, condition: "keyword:17"},
-  {id: 67, target_type: "Skill", target_id: 20, skill_id: 314, created_at: "2025-12-31T15:29:12Z", updated_at: "2025-12-31T15:29:12Z", value: nil, condition: "skill:73"},
-  {id: 68, target_type: "Keyword", target_id: 2, skill_id: 113, created_at: "2025-12-31T15:30:21Z", updated_at: "2025-12-31T15:30:21Z", value: nil, condition: "keyword:3"}
+  {id: 65, target_type: "Skill", target_id: 20, skill_id: 7, created_at: "2025-12-31T15:18:40Z", updated_at: "2025-12-31T18:01:04Z", value: "1", condition: "keyword.id:12"},
+  {id: 66, target_type: "Skill", target_id: 20, skill_id: 313, created_at: "2025-12-31T15:26:44Z", updated_at: "2025-12-31T18:00:50Z", value: nil, condition: "size.id:4 and skill.id:104"},
+  {id: 67, target_type: "Skill", target_id: 20, skill_id: 314, created_at: "2025-12-31T15:29:12Z", updated_at: "2025-12-31T18:03:31Z", value: nil, condition: "skill.id:73"},
+  {id: 68, target_type: "Keyword", target_id: 2, skill_id: 113, created_at: "2025-12-31T15:30:21Z", updated_at: "2025-12-31T18:03:24Z", value: nil, condition: "keyword.id:3"},
+  {id: 71, target_type: "Army", target_id: 1, skill_id: 20, created_at: "2025-12-31T16:51:30Z", updated_at: "2025-12-31T18:03:18Z", value: "15", condition: "skill.id!20 and fighter:leader"},
+  {id: 72, target_type: "Army", target_id: 1, skill_id: 20, created_at: "2025-12-31T16:51:30Z", updated_at: "2025-12-31T18:03:10Z", value: "5", condition: "skill.id:20 and fighter:leader"},
+  {id: 73, target_type: "Affiliation", target_id: 1, skill_id: 39, created_at: "2025-12-31T16:53:58Z", updated_at: "2025-12-31T16:53:58Z", value: "X", condition: nil},
+  {id: 74, target_type: "Solo", target_id: 1, skill_id: 14, created_at: "2025-12-31T17:36:43Z", updated_at: "2025-12-31T17:36:43Z", value: nil, condition: nil},
+  {id: 75, target_type: "Solo", target_id: 2, skill_id: 33, created_at: "2025-12-31T17:39:36Z", updated_at: "2025-12-31T17:39:36Z", value: nil, condition: nil}
 ])
 Affiliation.upsert_all([
-  {id: 1, name: "L'eclisse", army_id: 1, description: nil, created_at: "2025-12-27T17:05:20Z", updated_at: "2025-12-27T17:05:20Z"},
+  {id: 1, name: "L'eclisse", army_id: 1, description: "Rivelazione/Lame di Y’Anrhyl:\r\ndopo ogni tiro di tattica, il giocatore designa un combattente avversario. Tutti i combattenti dell’Eclisse beneficiano, fino al termine del turno, di Flagello/X contro quel combattente e tutti quelli con lo stesso nome (o dello stesso tipo di truppa).", created_at: "2025-12-27T17:05:20Z", updated_at: "2025-12-31T16:53:58Z"},
   {id: 4, name: "Dun Scaith", army_id: 1, description: nil, created_at: "2025-12-29T00:29:39Z", updated_at: "2025-12-29T00:29:39Z"},
-  {id: 5, name: "L'impuro", army_id: 1, description: nil, created_at: "2025-12-30T18:49:24Z", updated_at: "2025-12-30T18:49:24Z"}
+  {id: 5, name: "L'impuro", army_id: 1, description: "Rivelazione/Impuri:\r\nal momento dello schieramento, almeno il 50% degli effettivi dell’armata deve essere composta da Mezzelfi.\r\nI mezzelfi affiliati ricevono uno sconto in pa pari al loro rango +1.", created_at: "2025-12-30T18:49:24Z", updated_at: "2025-12-31T17:02:02Z"}
 ])
 SkillCategory.const_get('HABTM_Skills').upsert_all([
   {skill_id: 1, skill_category_id: 2},
@@ -600,6 +606,14 @@ SkillCategory.const_get('HABTM_Skills').upsert_all([
   {skill_id: 313, skill_category_id: 3},
   {skill_id: 314, skill_category_id: 3}
 ])
+Solo.upsert_all([
+  {id: 1, name: "Acrobazie", description: "riservato ai Divoratori con RES 7 o inferiore.\r\nIl combattente acquisisce Balzo.", cost: "1", affiliation_id: 1, created_at: "2025-12-31T17:33:21Z", updated_at: "2025-12-31T17:58:30Z", condition: "fighter.resilience<8"},
+  {id: 2, name: "Ombra cacciatrice", description: "questo Solo può essere attribuito a qualunque Eclissante o Maestra d’armi Eclissante, anche Personaggio. Essa acquisisce Esploratore.", cost: "2", affiliation_id: 1, created_at: "2025-12-31T17:39:36Z", updated_at: "2025-12-31T17:58:19Z", condition: "fighter.id:7,32,33,8"},
+  {id: 3, name: "Istinto del Predatore", description: "il combattente con resistenza 7 o inferiore ottiene Istinto di Sopravvivenza per un costo pari al suo valore di Possanza.\r\nInoltre, se è un Eclissante, gli avversari in contatto di base con lei perdono l’abilità Istinto di Sopravvivenza, se la hanno.", cost: "fighter.size.base_force", affiliation_id: 1, created_at: "2025-12-31T17:54:15Z", updated_at: "2025-12-31T17:58:01Z", condition: "fighter.resilience<8"},
+  {id: 4, name: "Bracconiere", description: "il combattente con questo solo beneficia di Artificiere, ma non è associato ad una macchina da guerra. I segnalini Esca e Trappola sono piazzati entro 20 cm a partire dalla sua base.\r\nI segnalini non possono essere posizionati a meno di 10 cm dalla zona di schieramento avversaria.\r\nMassimo una carta di combattenti ogni 150 pa del formato di gioco può disporre di questo Solo.", cost: "2", affiliation_id: 5, created_at: "2025-12-31T18:08:37Z", updated_at: "2025-12-31T18:08:37Z", condition: "one_card_every:150"},
+  {id: 5, name: "Risvegliare il Sangue", description: "questo solo è riservato ai Signori ed agli Adepti dei Massacri.\r\nIl mago ottiene +1 POT e può scambiare la sua capacità “Gli Adepti dei Massacri” o “la Via della Perfezione” con “Risvegliare il Sangue”.", cost: "1", affiliation_id: 5, created_at: "2025-12-31T18:11:25Z", updated_at: "2025-12-31T18:11:25Z", condition: "fighter.id:15,42,43,44,45"},
+  {id: 6, name: "Sangue di Drago", description: "Sangue di … : tutti i \"Solo/Sangue di...\"\r\npossono essere attribuiti solo ai Mezzelfi\r\naffiliati. Un combattente non Personaggio\r\npuò beneficiare di uno solo di questi\r\nSolo; un Personaggio può beneficiare di\r\ndue di questi Solo.\r\nSolo/Sangue di Drago:\r\nil combattente ottiene Concentrazione/X (INI, ATT, DIF), dove X è il suo rango. Se possiede già Concentrazione, il valore X aumenta di un punto (max 3). Le caratteristiche cui è associata la Concentrazione garantite dal solo si sommano a quelle di cui il combattente già dispone.\r\nIl costo di questo solo è pari al rango del combattente, il doppio se è un Personaggio.", cost: "keyword:1 then 2*fighter.rank else fighter.rank", affiliation_id: 5, created_at: "2025-12-31T18:16:46Z", updated_at: "2025-12-31T18:16:46Z", condition: nil}
+])
 Fighter.upsert_all([
   {id: 1, name: "Kassar il Fuggitivo", title: nil, army_id: 1, affiliation_id: nil, rank_id: 1, size_id: 4, base_cost: 62, movement_ground: 17.5, movement_fly: nil, initiative: 6, attack: 6, strength: 10, defence: 4, resilience: 7, aim: nil, courage: nil, fear: 6, discipline: 1, power: nil, faith_create: nil, faith_alter: nil, faith_destroy: nil, created_at: "2025-12-27T17:06:10Z", updated_at: "2025-12-30T10:01:06Z", base_dice_pool: 2, one_card_every: 200, fighters_on_every_card: 1},
   {id: 2, name: "Ashkasa", title: "Guerriero del Sangue", army_id: 1, affiliation_id: nil, rank_id: 2, size_id: 2, base_cost: 43, movement_ground: 12.5, movement_fly: nil, initiative: 5, attack: 5, strength: 7, defence: 5, resilience: 7, aim: nil, courage: 6, fear: nil, discipline: 3, power: nil, faith_create: nil, faith_alter: nil, faith_destroy: nil, created_at: "2025-12-27T17:06:10Z", updated_at: "2025-12-30T10:03:29Z", base_dice_pool: 2, one_card_every: 200, fighters_on_every_card: 2},
@@ -652,8 +666,7 @@ Fighter.upsert_all([
 AffiliationLeader.upsert_all([
   {id: 1, affiliation_id: 1, fighter_id: 7, required: false, created_at: "2025-12-28T23:59:25Z", updated_at: "2025-12-28T23:59:25Z"},
   {id: 2, affiliation_id: 1, fighter_id: 8, required: false, created_at: "2025-12-28T23:59:25Z", updated_at: "2025-12-28T23:59:25Z"},
-  {id: 3, affiliation_id: 4, fighter_id: 10, required: false, created_at: "2025-12-29T00:30:50Z", updated_at: "2025-12-29T00:30:50Z"},
-  {id: 4, affiliation_id: 5, fighter_id: 9, required: false, created_at: "2025-12-30T18:50:45Z", updated_at: "2025-12-30T18:50:45Z"}
+  {id: 3, affiliation_id: 4, fighter_id: 10, required: false, created_at: "2025-12-29T00:30:50Z", updated_at: "2025-12-29T00:30:50Z"}
 ])
 Keyword.const_get('HABTM_Fighters').upsert_all([
   {fighter_id: 7, keyword_id: 3},
